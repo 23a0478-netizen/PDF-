@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <title>アンケートPDFジェネレータ</title>
+  <!-- Googleフォント -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- 外部CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="panel">
+    <h2>PDF 作成フォーム</h2>
+
+    <label>① アンケートタイトル（左上）</label>
+    <input id="inputTitle" type="text" value="引退LIVE" />
+
+    <label>② 曲名（選択肢） — 改行または「、」で複数指定</label>
+    <textarea id="inputSongs">初陣
+臨道
+祭ノ祭
+合祭
+笑ノ舞
+いろどり
+風神雷神
+紫焔楽
+戦</textarea>
+
+    <label>③ 希望行数（第1〜第X希望）</label>
+    <input id="inputNumPref" type="number" min="1" max="20" value="6" />
+
+    <label>④ チェック項目（カンマ or 改行で複数）</label>
+    <textarea id="inputChecks">MC</textarea>
+
+    <!-- 追加部分：その他備考の表示選択 -->
+    <label>⑤ その他備考を表示しますか？</label>
+    <select id="inputRemarksDisplay">
+      <option value="yes" selected>表示する</option>
+      <option value="no">表示しない</option>
+    </select>
+
+    <div style="margin-top:10px;">
+      <button id="btnPreview" class="btn">プレビュー更新</button>
+      <button id="btnDownload" class="btn" style="background:#388e3c">PDF作成・ダウンロード</button>
+      <button id="btnReset" class="btn secondary">リセット</button>
+    </div>
+  </div>
+
+  <div class="canvas-wrap">
+    <div id="pdf-content"></div>
+  </div>
+
+  <!-- 外部ライブラリ -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <!-- 外部JS -->
+  <script src="script.js"></script>
+</body>
+</html>
